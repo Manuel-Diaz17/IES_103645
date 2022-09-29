@@ -4,6 +4,8 @@ import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 /**
  * demonstrates the use of the IPMA API for weather forecast
@@ -11,6 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class WeatherStarter {
 
     //todo: should generalize for a city passed as argument
+    private static Logger logger = LogManager.getLogger(WeatherStarter.class);
 
     //private static final int CITY_ID_AVEIRO = 1010500;
     public static void  main(String[] args ) {
@@ -35,14 +38,14 @@ public class WeatherStarter {
             if (forecast != null) {
                 var firstDay = forecast.getData().listIterator().next();
 
-                System.out.printf( "Country: %s \nDay: %s \nMax Temperature: %4.1f \nMin Temperature: %4.1f \nProbability of precipitation: %4.1f \n", 
+                logger.info(String.format("\nCountry: %s \nDay: %s \nMax Temperature: %4.1f \nMin Temperature: %4.1f \nProbability of precipitation: %4.1f \n", 
                         forecast.getCountry(),
                         firstDay.getForecastDate(),
                         Double.parseDouble(firstDay.getTMax()),
                         Double.parseDouble(firstDay.getTMin()),
-                        Double.parseDouble(firstDay.getPrecipitaProb()));
+                        Double.parseDouble(firstDay.getPrecipitaProb())));
             } else {
-                System.out.println( "No results for this request!");
+                logger.info( "No results for this request!");
             }
         } catch (Exception ex) {
             ex.printStackTrace();
