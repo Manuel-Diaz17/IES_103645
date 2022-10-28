@@ -3,7 +3,7 @@
 3.1 - Alínea b)
 
 - The “UserController” class gets an instance of “userRepository” through its constructor; how is this new repository instantiated?
-    O "UserRepository" é inicializado porque o "UserController" tem a anotação @Autowired, que injeta uma instância de "UserRepository" no objeto "UserController".
+O "UserRepository" é inicializado porque o "UserController" tem a anotação @Autowired, que injeta uma instância de "UserRepository" no objeto "UserController".
 
 - List the methods invoked in the “userRepository” object by the “UserController”. Where are these methods defined?
     Os métodos invocados são os segyintes: findAll(), save(), findById() e delete(). Estes são definidos na classe "CrudRepository", que o nosso repositório extende.
