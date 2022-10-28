@@ -22,7 +22,7 @@
 
 Listar:
     
-    ![Listar](https://user-images.githubusercontent.com/98337993/198641938-138bface-8bee-4ad7-a59e-e092083eeb4f.png)
+
 
 Filtrar um:
 
